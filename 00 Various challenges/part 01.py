@@ -20,3 +20,10 @@ def check_for_longest(collection):
     return len(max(collection, key=len))
 
 print(check_for_longest(["aaaaaaa", "bb", "cccccccc", "ddddddddddddd", "eeee"]))
+
+# 04. Nearest square number.
+
+def nearest_square_number(number):
+    return round(number ** 0.5) ** 2
+
+print(nearest_square_number(37))
