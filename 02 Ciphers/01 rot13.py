@@ -1,5 +1,3 @@
-
-
 def rot13(in_string):
     decoded = ""
     for char in in_string:
