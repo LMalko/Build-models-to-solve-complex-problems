@@ -27,3 +27,18 @@ def nearest_square_number(number):
     return round(number ** 0.5) ** 2
 
 print(nearest_square_number(37))
+
+
+# 05. Find which number is missing from range using sequences.
+
+def find_missing(collection):
+    return (max(collection ) + 1) * max(collection) / 2 - sum(collection)
+
+# 06. Check if a number is a sqrt.
+
+def is_square(n):
+    if str((n ** 0.5)).split(".")[1] == "0":
+        return True
+    return False
+
+print(is_square(24))
