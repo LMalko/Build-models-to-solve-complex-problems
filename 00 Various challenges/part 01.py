@@ -53,3 +53,25 @@ def sum_pairs(list_of_ints, number):
               return [difference, i]
           already_visited.add(i)
       return []
+
+#08. Assign value to variable when 1st option might be None
+
+end = "variable that can be None" or "if 1st variable is None than this value will be asssigned."
+
+# 09. alternative to for i in range(len(lista))
+
+        # for(index, row) in enumerate(collection)
+
+# 10. Cleaner alternative for regex when checking for valid parethesis
+
+# valid_parentheses("()") # True
+# valid_parentheses(")(()))") # False
+# valid_parentheses("(") # False
+# valid_parentheses("(())((()())())") # True
+# valid_parentheses('))((') # False
+# valid_parentheses('())(') # False
+# valid_parentheses('()()()()())()(') # False
+
+def valid_parentheses(string):
+    result = sorted(string)
+    return result.count("(") == result.count(")") and string[-1] != "("
