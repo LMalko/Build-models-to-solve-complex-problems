@@ -42,3 +42,14 @@ def is_square(n):
     return False
 
 print(is_square(24))
+
+# 07. Return first pair of numbers in list that sum to the number in parameter
+
+def sum_pairs(list_of_ints, number):
+      already_visited = set()
+      for i in list_of_ints:
+          difference = number - i
+          if difference in already_visited:
+              return [difference, i]
+          already_visited.add(i)
+      return []
