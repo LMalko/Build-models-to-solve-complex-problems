@@ -4,8 +4,8 @@ import random
 
 @time_it
 def insertion_sort(collection):
-    for index in range(1, len(collection)):
-        currentvalue = collection[index]
+    for index, value in enumerate(collection[1:]):
+        currentvalue = value
         position = index
         while position > 0 and collection[position - 1] > currentvalue:
             collection[position] = collection[position - 1]
