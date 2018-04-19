@@ -34,3 +34,23 @@ def running_average():
     # rAvg2 = running_average()
     # rAvg2(1) // 1
     # rAvg2(3) // 2
+
+# 05. Letting function be called only once.
+
+def once(funkcja):
+    once.count = 0
+    def funkcja(a, b):
+        once.count += 1
+        if once.count > 1:
+            return None
+        return a + b
+    return funkcja
+
+def add(a,b):
+    return a+b
+
+oneAddition = once(add)
+
+print(oneAddition(2,2))
+print(oneAddition(2,2))
+print(oneAddition(12,200))
