@@ -51,5 +51,3 @@ print(quick_sort(big_list))
 #     greater = quick_sort([element for element in collection if element > collection[0]])
 #
 #     return  less + equal + greater
-# small_list = [1,]
-# big_list = [1,]
