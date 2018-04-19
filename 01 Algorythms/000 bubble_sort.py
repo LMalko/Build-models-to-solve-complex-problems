@@ -27,3 +27,24 @@ while(len(big_list) < 50000):
 
 print(bubble_sort(small_list))
 print(bubble_sort(big_list))    #will take ages or crash.
+
+
+
+
+# With snapshots.
+
+# import copy
+#
+# def bubble(collection):
+#     snapshots = []
+#     swapped = False
+#
+#     while not swapped:
+#
+#         swapped = True
+#         for i in range(len(collection ) - 1):
+#             if collection[i] > collection[i + 1]:
+#                 swapped = False
+#                 collection[i], collection[i + 1] = collection[i + 1], collection[i]
+#                 snapshots.append(copy.deepcopy(collection))
+#     return snapshots
