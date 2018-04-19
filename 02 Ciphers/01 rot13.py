@@ -1,13 +1,11 @@
-def rot13(in_string):
-    decoded = ""
-    for char in in_string:
-        if "a" <= char <= "z":
-            decoded += chr(ord("a") + (ord(char) - ord("a") + 13) % 26)
-        elif "A" <= char <= "Z":
-            decoded += chr(ord("A") + (ord(char) - ord("A") + 13) % 26)
-        else:
-            decoded += char
-    return decoded
+from string import ascii_lowercase , ascii_uppercase
+
+def rot13(message):
+    return message.translate(str.maketrans(ascii_lowercase + ascii_uppercase,
+                                           "".join(ascii_lowercase[13:] +
+                                           ascii_lowercase[:13] +
+                                           ascii_uppercase [13:] +
+                                           ascii_uppercase [:13])))
 
 
 string = "Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!"
