@@ -7,3 +7,5 @@ Aiming for fastest solution for different challenges.
 
 
 # 02 Ciphers
+
+Most, if not all, algorythms in this section assumes 26 letter alphabet.
