@@ -24,11 +24,12 @@ print(caesar_decrypt)
 
 
 def break_caesar(message):
+
     caesar_lambda = lambda s, key: s.translate(str.maketrans(ascii_lowercase, ascii_lowercase[key:] + ascii_lowercase[:key]))
 
     message_only_alpha = ''.join(c if c.isalpha() else ' ' for c in message).lower()
 
-    hits = [ sum(w in WORDS for w in caesar_lambda(message_only_alpha, -key).split()) for key in range(26) ]
+    hits = [sum(word in WORDS for word in caesar_lambda(message_only_alpha, -key).split()) for key in range(26)]
 
     most_likely_offset = hits.index(max(hits))
 
