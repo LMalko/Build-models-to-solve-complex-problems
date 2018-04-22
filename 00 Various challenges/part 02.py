@@ -35,7 +35,7 @@ def running_average():
     # rAvg2(1) // 1
     # rAvg2(3) // 2
 
-# 05. Letting function be called only once.
+# 05. Allowing function be called only once.
 
 def once(funkcja):
     once.count = 0
@@ -54,3 +54,42 @@ oneAddition = once(add)
 print(oneAddition(2,2))
 print(oneAddition(2,2))
 print(oneAddition(12,200))
+
+import re
+# 06. Add space between every dot and letter.
+
+regex = re.compile(r"(\.)([A-Za-z])")
+string = regex.sub(r"\1 \2", "stringu.numberu.booleanu.type")
+print(string)
+
+# 07. Delete 2 or more spaces.
+
+regex = re.compile(r" {2,}")
+print(regex.sub(" ", "This    is   a   waste   of    space."))
+
+# 08. Reverse word order.
+
+print(' '.join(reversed("words these reverse should it Now".split())))
+
+#09. Get positions of matching sequence.
+
+result = []
+regex = re.compile(r"[a-zA-Z]{1,} [a-zA-Z]{1,} ")
+for m in regex.finditer("words these reverse should it Now"):
+    result.append([m.start(), m.end()])
+print(result)
+
+# 10. Regex to validate users, allowed 4-16 alphanumeric and underscore.
+
+def validate_usr(un):
+    return re.match( '^[a-z0-9_]{4,16}$', un ) is not None
+
+# 10.5. Check for alternate numbers.
+
+postalCode= "323232"
+
+regex = re.compile = (r"^[1-9][0-9]{5}$")
+result = re.search(regex, postalCode).group(0)
+print(result)
+alternatingDigitPairs= re.search(r'(\d)(\d)\1\2', postalCode).group(0)
+print(alternatingDigitPairs)
