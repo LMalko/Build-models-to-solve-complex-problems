@@ -82,14 +82,19 @@ print(result)
 # 10. Regex to validate users, allowed 4-16 alphanumeric and underscore.
 
 def validate_usr(un):
-    return re.match( '^[a-z0-9_]{4,16}$', un ) is not None
+    return re.match('^[a-z0-9_]{4,16}$', un) is not None
 
 # 10.5. Check for alternate numbers.
 
 postalCode= "323232"
 
-regex = re.compile = (r"^[1-9][0-9]{5}$")
-result = re.search(regex, postalCode).group(0)
+# Compile once to use later.
+regexu = re.compile(r"^[1-9][0-9]{5}$")
+# Search for only first match.
+result = regexu.search(postalCode).group()
 print(result)
-alternatingDigitPairs= re.search(r'(\d)(\d)\1\2', postalCode).group(0)
+# Find all non overlapping matches.
+result = regexu.findall(postalCode)
+print(result)
+alternatingDigitPairs= re.search(r'(\d)(\d)\1\2', postalCode).group()
 print(alternatingDigitPairs)
