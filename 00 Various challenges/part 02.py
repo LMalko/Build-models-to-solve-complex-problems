@@ -89,3 +89,12 @@ def parse_date(input):
             "y": match.group(3),
         }
     return None
+
+# 10. Ignorecase and substitute group.
+
+text = "Last night Mrs. Daisy and Mr. White murdered Ms. Chow"
+
+pattern = re.compile(r'(Mr.|Mrs.|Ms.) ([a-z])[a-z]+', re.I)
+
+result = pattern.sub("\g<1> \g<2>", text)
+print(result)
