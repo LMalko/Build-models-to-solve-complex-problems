@@ -79,6 +79,16 @@ for m in regex.finditer("words these reverse should it Now"):
     result.append([m.start(), m.end()])
 print(result)
 
+#09.5 Regex groups.
+
+url_regex = re.compile(r'(https?)://(www\.[A-za-z-]{2,256}\.[a-z]{2,6})([-a-zA-Z0-9@:%_\+.~#?&//=]*)')
+match = url_regex.search("https://www.my-website.com/bio?data=blah&dog=yes")
+print(f"Protocol: {match.group(1)}")
+print(f"Domain: {match.group(2)}")
+print(f"Everything Else: {match.group(3)}")
+print(match.groups())
+print(match.group())
+
 # 10. Regex to validate users, allowed 4-16 alphanumeric and underscore.
 
 def validate_usr(un):
@@ -98,3 +108,4 @@ result = regexu.findall(postalCode)
 print(result)
 alternatingDigitPairs= re.search(r'(\d)(\d)\1\2', postalCode).group()
 print(alternatingDigitPairs)
+
