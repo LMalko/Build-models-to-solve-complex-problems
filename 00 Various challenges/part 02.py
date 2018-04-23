@@ -121,3 +121,16 @@ def parse_name(input):
 
 parse_name("Mrs. Grazyna Wojcik")
 
+    # Check if correct date
+
+
+def parse_date(string):
+    regex = re.compile(r"^(?P<d>[0-9]{2})[.,/](?P<m>[0-9]{2})[.,/](?P<y>[0-9]{4})$")
+    matches = regex.search(string)
+    if not matches:
+        return None
+    return {"d": matches.group("d"), "m": matches.group("m"), "y": matches.group("y")}
+
+print(parse_date("12,04,2018"))
+print(parse_date("12.05.2020"))
+print(parse_date("122-077-7777"))
