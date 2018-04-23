@@ -89,7 +89,7 @@ def validate_usr(un):
 postalCode= "323232"
 
 regex = re.compile = (r"^[1-9][0-9]{5}$")
-result = re.search(regex, postalCode).group(0)
+result = re.search(regex, postalCode).group()
 print(result)
-alternatingDigitPairs= re.search(r'(\d)(\d)\1\2', postalCode).group(0)
+alternatingDigitPairs= re.search(r'(\d)(\d)\1\2', postalCode).group()
 print(alternatingDigitPairs)
