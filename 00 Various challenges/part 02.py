@@ -88,11 +88,13 @@ def validate_usr(un):
 
 postalCode= "323232"
 
-regex = re.compile = (r"^[1-9][0-9]{5}$")
+# Compile once to use later.
+regexu = re.compile(r"^[1-9][0-9]{5}$")
 # Search for only first match.
-result = re.search(regex, postalCode).group()
+result = regexu.search(postalCode).group()
+print(result)
 # Find all non overlapping matches.
-result = re.findall("\d\d", postalCode)
+result = regexu.findall(postalCode)
 print(result)
 alternatingDigitPairs= re.search(r'(\d)(\d)\1\2', postalCode).group()
 print(alternatingDigitPairs)
