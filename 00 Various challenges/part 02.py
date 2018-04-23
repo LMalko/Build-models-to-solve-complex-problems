@@ -134,3 +134,16 @@ def parse_date(string):
 print(parse_date("12,04,2018"))
 print(parse_date("12.05.2020"))
 print(parse_date("122-077-7777"))
+
+    #or
+
+def parse_date(input):
+    pattern = re.compile("^(\d\d)[,/.](\d\d)[,/.](\d{4})$")
+    match = pattern.search(input)
+    if match:
+        return {
+            "d": match.group(1),
+            "m": match.group(2),
+            "y": match.group(3),
+        }
+    return None
