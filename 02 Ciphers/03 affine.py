@@ -48,7 +48,7 @@ def break_affine(message):
         a = i[0]
         b = i[1]
         temp_decrypt = affine(message.lower(), a, b, True)
-        hits = [sum(word in WORDS for word in temp_decrypt.split())]
+        hits = sum(word in WORDS for word in temp_decrypt.split())
         hits_record.append(hits)
     a_and_b = allowed_a_and_b[hits_record.index(max(hits_record))]
     return affine(message, a_and_b[0], a_and_b[1], True)
