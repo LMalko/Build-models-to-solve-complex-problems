@@ -54,3 +54,12 @@ oneAddition = once(add)
 print(oneAddition(2,2))
 print(oneAddition(2,2))
 print(oneAddition(12,200))
+
+# 06. Elements key sorted in ordered of occurence.
+from collections import Counter
+letters_occurence = Counter("Composition is achieved by using insta76nce variables that refers to other objects.")
+
+letters_in_order_of_frequency = "".join(sorted(letters_occurence.keys(),
+                                                   key=lambda x: letters_occurence[x], reverse=True))
+
+print(letters_in_order_of_frequency)
