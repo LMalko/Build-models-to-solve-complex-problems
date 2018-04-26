@@ -20,6 +20,12 @@ print(simple_substitution("rmfqmghzhms hg erkhpypi ux nghsw hsgzesrp yelheucpg z
 
 
 
+def is_substitution_cipher(message, key):
+    return len(set(message)) == len(set(key)) == len(set(zip(message, key)))
+
+
+
+
 # Shorter version will return inaccurate results, longer version will take days and it's not tested.
 
 # It's faster to break it manually.
