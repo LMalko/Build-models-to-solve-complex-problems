@@ -20,8 +20,13 @@ print(simple_substitution("rmfqmghzhms hg erkhpypi ux nghsw hsgzesrp yelheucpg z
 
 
 
-# Shorter version will return inaccurate results, longer version will take days and it's not tested
+# Shorter version will return inaccurate results, longer version will take days and it's not tested.
+
 # It's faster to break it manually.
+
+# If we analyze longer text, directly substitute letters
+# using by making relative occurence of letters in English language dictionary, without permutations.
+# This will also give inaccurate results.
 
 import re
 import itertools
@@ -54,9 +59,6 @@ from collections import Counter
 #         print(len(hits_list))
 
 
-
-
-
 # Brute force verion.
 
 # def break_simple_substitution(message):
@@ -70,5 +72,20 @@ from collections import Counter
 #             return temp_decrypt[:-26]
 
 
+# Direct substitution version.
+
+# def break_simple_substitution(message):
+#     message = message.lower() + ascii_lowercase
+#
+#     regex = re.compile(r"[^a-z]")
+#
+#     letters_occurence = Counter(re.sub(regex, "", message))
+#
+#     letters_freq_sorted = "".join (sorted (letters_occurence.keys(),
+#                                                        key=lambda x: letters_occurence[x], reverse=True))
+#
+#     relative_order = "etaoinshrdlcumwfgypbvkjxqz"
+#
+#     return message.translate(str.maketrans(letters_freq_sorted, relative_order))
 
 
