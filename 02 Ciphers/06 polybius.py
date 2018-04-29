@@ -46,3 +46,24 @@ print(polybius_encode("d e f e n d  t h e  e a s t  w a l l  o f  t h e  c a s t
 
 print(polybius_decode(polybius_encode("d e f e n d  t h e  e a s t  w a l l  o f  t h e  c a s t l e", letter_to_code),
                       letter_to_code))
+
+
+# Classic version, where 'i' and 'j' share the same code.
+
+
+#      1	2	3	4	  5
+# 1	A	B	C	D	  E
+# 2	F	G	H	I/J	  K
+# 3	L	M	N	O	  P
+# 4	Q	R	S	T	  U
+# 5	V	W	X	Y	  Z
+
+
+def polybius_encode_classic(text):
+    alphabet = 'ABCDEFGHIKLMNOPQRSTUVWXYZJ'
+    return ''.join(['24' if letter == 'J' else
+                    str(int(alphabet.index(letter)/5 + 1)) +
+                    str(int(alphabet.index(letter)%5 + 1)) if letter in alphabet else
+                    letter for letter in text])
+
+print(polybius_encode_classic("POLYBIUS SQUARE CIPHER"))
