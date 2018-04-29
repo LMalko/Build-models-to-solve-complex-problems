@@ -36,7 +36,9 @@ def is_substitution_cipher(message, key):
 
 import re
 import itertools
-from words import WORDS
+import sys
+sys.path.append("..")
+from resources.words import WORDS
 from collections import Counter
 
 # Shorter version using relative occurence of letters in English language.

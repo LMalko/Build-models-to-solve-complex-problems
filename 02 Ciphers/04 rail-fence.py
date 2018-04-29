@@ -9,6 +9,7 @@ def rail_fence(message, key):
     container_forward = [i for i in range(key)]
     container_back = reversed(container_forward[1: -1])
     container = cycle(chain(container_forward, container_back))
+
     container_slice = list(islice(container, len(message)))
 
     letters_enumerate = zip(list(message), container_slice)

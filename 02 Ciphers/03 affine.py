@@ -1,7 +1,9 @@
 import re
 import itertools
 from string import ascii_lowercase
-from words import WORDS
+import sys
+sys.path.append("..")
+from resources.words import WORDS
 
 def affine(message, slope_a, intercept_b, decrypt=False):
     letters_to_numbers = {**{}.fromkeys(ascii_lowercase, "EMPTY"),
