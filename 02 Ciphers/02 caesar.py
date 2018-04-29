@@ -1,6 +1,9 @@
 from string import ascii_lowercase , ascii_uppercase
 import random
-from words import WORDS
+import sys
+sys.path.append("..")
+from resources.words import WORDS
+
 
 def caesar(message, offset, decrypt=False):
     if decrypt:
