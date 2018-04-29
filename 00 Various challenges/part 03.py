@@ -63,3 +63,12 @@ letters_in_order_of_frequency = "".join(sorted(letters_occurence.keys(),
                                                    key=lambda x: letters_occurence[x], reverse=True))
 
 print(letters_in_order_of_frequency)
+
+#07. Count nested lists.
+
+def count_list(lista):
+    count = 0
+    for e in lista:
+        if isinstance(e, list):
+            count = count + 1 + count_list(e)
+    return count
