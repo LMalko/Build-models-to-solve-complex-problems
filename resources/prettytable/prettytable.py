@@ -37,7 +37,6 @@ import random
 import re
 import sys
 import textwrap
-import itertoos
 import unicodedata
 
 py3k = sys.version_info[0] >= 3
