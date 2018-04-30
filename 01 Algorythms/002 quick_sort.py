@@ -1,4 +1,6 @@
-from time_it import time_it_for_recursive
+import sys
+sys.path.append("..")
+from resources.time_it import time_it_for_recursive
 import random
 
 
