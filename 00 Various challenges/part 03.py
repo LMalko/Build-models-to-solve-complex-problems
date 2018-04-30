@@ -63,3 +63,28 @@ letters_in_order_of_frequency = "".join(sorted(letters_occurence.keys(),
                                                    key=lambda x: letters_occurence[x], reverse=True))
 
 print(letters_in_order_of_frequency)
+
+# 07. Count nested lists.
+
+def count_list(lista):
+    count = 0
+    for e in lista:
+        if isinstance(e, list):
+            count = count + 1 + count_list(e)
+    return count
+
+# 08. Sort numbers in multiple nested lists.
+
+import re
+def sort_nested_list(array):
+    array_to_string=str(array);
+
+    # Collect all numbers from nested arrays.
+    numbers=sorted(re.findall(r"\d+",array_to_string), key=int, reverse=True)
+
+
+    return eval(re.sub(r"\d+", lambda number: numbers.pop(), array_to_string))
+
+
+print(sort_nested_list([[[[[[[[[2, 1], [3,4]], [[6, 5], [8, 7]]]]]]]]]))
+print(sort_nested_list([[[29, 32], [82, 61], [75, 91]], [[[69, 99], [74, 23], [70, 97]]]]))

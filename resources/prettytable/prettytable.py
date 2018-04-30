@@ -36,6 +36,7 @@ import csv
 import random
 import re
 import sys
+import itertools
 import textwrap
 import unicodedata
 
@@ -48,8 +49,8 @@ if py3k:
     uni_chr = chr
     from html.parser import HTMLParser
 else: 
-    itermap = itertoos.imap
-    iterzip = itertoos.izip
+    itermap = itertools.imap
+    iterzip = itertools.izip
     uni_chr = unichr
     from HTMLParser import HTMLParser
 
