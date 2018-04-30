@@ -83,7 +83,7 @@ def sort_nested_list(array):
     numbers=sorted(re.findall(r"\d+",array_to_string), key=int, reverse=True)
 
 
-    return eval(re.sub(r"\d+", lambda number: numbers.pop(), array_to_string))
+    return re.sub(r"\d+", lambda number: numbers.pop(), array_to_string)
 
 
 print(sort_nested_list([[[[[[[[[2, 1], [3,4]], [[6, 5], [8, 7]]]]]]]]]))
