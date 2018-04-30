@@ -1,6 +1,4 @@
-import sys
-sys.path.append("..")
-from resources.time_it import time_it
+from time_it import time_it
 import random
 
 @time_it
