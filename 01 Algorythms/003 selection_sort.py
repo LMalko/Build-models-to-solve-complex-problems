@@ -9,15 +9,15 @@ def selection_sort(collection):
 
     for i in range(len(collection)):
         minimum = collection[start]
-        swapped = False
-        while not swapped:
-            swapped = True
+        is_ordered = False
+        while not is_ordered:
+            is_ordered = True
             for index, value in enumerate(collection[start:]):
                 if value < minimum:
-                    swapped = False
+                    is_ordered = False
                     temp_index = index
                     minimum = value
-            if not swapped:
+            if not is_ordered:
                 collection[temp_index + start], collection[start] = collection[start], minimum
         start += 1
     return collection
