@@ -5,14 +5,14 @@ import random
 
 @time_it
 def bubble_sort(collection):
-    swapped = False
+    is_ordered = False
 
-    while not swapped:
+    while not is_ordered:
 
-        swapped = True
+        is_ordered = True
         for i in range(len(collection ) - 1):
             if collection[i] > collection[i + 1]:
-                swapped = False
+                is_ordered = False
                 collection[i], collection[i + 1] = collection[i + 1], collection[i]
     return collection
 
