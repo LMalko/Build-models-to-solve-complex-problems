@@ -1,6 +1,6 @@
 Intent:
 
-  -Separate the user interface into three interconnected components: the model, the view and the controller. Let the model manage the data,    the view display the data and the controller mediate updating the data and redrawing the display.
+Separate the user interface into three interconnected components: the model, the view and the controller. Let the model manage the data,    the view display the data and the controller mediate updating the data and redrawing the display.
 
 Use the Model-View-Controller pattern when:
 
