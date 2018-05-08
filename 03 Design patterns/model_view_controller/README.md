@@ -1,12 +1,14 @@
-Intent:
+# Model-view-controller
+
+# Intent:
 
 Separate the user interface into three interconnected components: the model, the view and the controller. Let the model manage the data,    the view display the data and the controller mediate updating the data and redrawing the display.
 
-Use the Model-View-Controller pattern when:
+# Use the Model-View-Controller pattern when:
 
   - you want to clearly separate the domain data from its user interface representation
   
-Advantages:
+# Advantages:
 
 - Simultaneous development – Multiple developers can work simultaneously on the model, controller and views.
 
@@ -18,7 +20,7 @@ Advantages:
 
 - Multiple views for a model – Models can have multiple views
 
-Disadvantages:
+# Disadvantages:
 
 - Code navigability – The framework navigation can be complex because it introduces new layers of abstraction and requires users to adapt to the decomposition criteria of MVC.
 
