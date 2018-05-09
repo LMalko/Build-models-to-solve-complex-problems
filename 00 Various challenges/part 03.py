@@ -91,3 +91,23 @@ def sort_nested_list(array):
 
 print(sort_nested_list([[[[[[[[[2, 1], [3,4]], [[6, 5], [8, 7]]]]]]]]]))
 print(sort_nested_list([[[29, 32], [82, 61], [75, 91]], [[[69, 99], [74, 23], [70, 97]]]]))
+
+# 09. Count vowels in string
+
+from collections import Counter
+import re
+def vowel_count(string):
+    string = re.sub("[^aeiou]", "", string)
+    return Counter(string.lower())
+
+print(vowel_count('Awesome'))
+
+# 10. Remove particular number of occurences of an element in a
+#       string and swapcase
+
+def remove(s, n):
+    result = s
+    result = result.replace("!", "", n)
+    return result.swapcase()
+
+print(remove("Hello, Hello!!!!!!", 3))
