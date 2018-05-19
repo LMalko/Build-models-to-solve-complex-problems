@@ -11,7 +11,9 @@ def quick_sort(collection):
     greater = []
 
     if len(collection) > 1:
-        pivot = collection[0]
+        # pivot = collection[0]
+        # Use median of three
+        pivot = sorted([collection[0], collection[-1], collection[round(len(collection)/2)]])[1]
         for element in collection:
             if element < pivot:
                 less.append(element)
@@ -38,7 +40,7 @@ while(len(big_list) < 50000):
     big_list.append(number)
 
 print(quick_sort(small_list))
-print(quick_sort(big_list))
+# print(quick_sort(big_list))
 
 
 # Slicker alternative, but much slower.

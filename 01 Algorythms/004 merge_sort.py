@@ -40,19 +40,19 @@ def merge_sort(collection):
     return collection
 
 small_list = [50,]
-# big_list = [4,]
+big_list = [4,]
 
 
 while(len(small_list) < 6):
     number = random.randint(1, 101)
     small_list.append(number)
 
-# while(len(big_list) < 50000):
-#     number = random.randint(1, 50001)
-#     big_list.append(number)
+while(len(big_list) < 50000):
+    number = random.randint(1, 50001)
+    big_list.append(number)
 
 print(small_list)
 small_list = merge_sort(small_list)
-# big_list = merge_sort(big_list)
+big_list = merge_sort(big_list)
 print(small_list)
-# print(big_list)
+print(big_list)
