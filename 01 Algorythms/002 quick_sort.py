@@ -41,7 +41,7 @@ while(len(big_list) < 50000):
     number = random.randint(1, 50001)
     big_list.append(number)
 
-print(quick_sort([14, 17, 13, 15, 19, 10, 3, 16, 9, 12]))
+# print(quick_sort(small_list))
 # print(quick_sort(big_list))
 
 
@@ -60,7 +60,7 @@ print(quick_sort([14, 17, 13, 15, 19, 10, 3, 16, 9, 12]))
 
 
 # 3. Version with partition
-
+@time_it_for_recursive
 def quickSort(alist):
    quickSortHelper(alist,0,len(alist)-1)
 
@@ -104,5 +104,6 @@ def partition(alist,first,last):
     return rightmark
 
 alist = [14, 17, 13, 15, 19, 10, 3, 16, 9, 12]
-quickSort(alist)
-print(alist)
+print(quickSort(alist))
+
+print(quick_sort(big_list))
