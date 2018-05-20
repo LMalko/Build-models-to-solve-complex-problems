@@ -61,49 +61,43 @@ while(len(big_list) < 50000):
 
 # 3. Version with partition
 @time_it_for_recursive
-def quickSort(alist):
-   quickSortHelper(alist,0,len(alist)-1)
+def quickSort(collection):
+    quickSortHelper(collection, 0, len(collection) - 1)
 
-def quickSortHelper(alist,first,last):
-   if first<last:
-       print(alist)
-       splitpoint = partition(alist,first,last)
+def quickSortHelper(collection, first_index, last_index):
 
-       print(alist[splitpoint])
-       quickSortHelper(alist,first,splitpoint-1)
-       quickSortHelper(alist,splitpoint+1,last)
+    if first_index < last_index:
+        splitpoint = partition(collection, first_index, last_index)
 
-def partition(alist,first,last):
+        quickSortHelper(collection, first_index, splitpoint - 1)
+        quickSortHelper(collection, splitpoint + 1, last_index)
 
-    pivotvalue = alist[first]
+def partition(collection, first_index, last_index):
 
-    leftmark = first+1
-    rightmark = last
+    pivot_value = collection[first_index]
+    left_mark = first_index + 1
+    right_mark = last_index
 
     done = False
     while not done:
 
-       while leftmark <= rightmark and alist[leftmark] <= pivotvalue:
-           leftmark = leftmark + 1
+        while left_mark <= right_mark and collection[left_mark] <= pivot_value:
+            left_mark = left_mark + 1
+        while collection[right_mark] >= pivot_value and right_mark >= left_mark:
+            right_mark = right_mark - 1
 
-       while alist[rightmark] >= pivotvalue and rightmark >= leftmark:
-           rightmark = rightmark -1
-
-       if rightmark < leftmark:
-           done = True
-       else:
-           temp = alist[leftmark]
-           alist[leftmark] = alist[rightmark]
-           alist[rightmark] = temp
-
-    temp = alist[first]
-    alist[first] = alist[rightmark]
-    alist[rightmark] = temp
+        if right_mark < left_mark:
+            done = True
+        else:
+            collection[left_mark], collection[right_mark] = collection[right_mark], collection[left_mark]
 
 
-    return rightmark
+    collection[first_index], collection[right_mark] = collection[right_mark], collection[first_index]
+    return right_mark
 
-alist = [14, 17, 13, 15, 19, 10, 3, 16, 9, 12]
-print(quickSort(alist))
+collection = [14, 17, 13, 15, 19, 10, 3, 16, 9, 12]
+quickSort(collection)
+print(collection)
 
-print(quick_sort(big_list))
+# quick_sort(big_list)
+# print(big_list)
