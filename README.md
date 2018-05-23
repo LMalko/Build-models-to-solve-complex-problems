@@ -9,3 +9,5 @@ Aiming for fastest solution for different challenges.
 Most, if not all, algorythms in this section assume 26 letter alphabet.
 
 # 03 Design patterns
+
+# 04 Data Structures
