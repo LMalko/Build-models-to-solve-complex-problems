@@ -1,3 +1,5 @@
+from node import Node
+
 class LinkedList:
 
     def __init__(self):
@@ -23,6 +25,22 @@ class LinkedList:
     def print_list(self):
         marker = self.__root
         while marker:
-            marker.print_details()
+            marker.display_node()
             marker = marker.get_next()
 
+    def delete_element_from_position(self, head, position):
+        if position == 0:
+            return head.get_next()
+
+        head.set_next(self.delete_element_from_position(head.get_next(), position - 1))
+        return head
+
+    def insert_at_tail(self, head, node):
+        if not head:
+            return node
+        else:
+            if not head.get_next():
+                head.set_next(node)
+            else:
+                self.insert_at_tail( head.get_next(), node)
+            return head
