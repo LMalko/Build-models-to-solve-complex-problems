@@ -34,3 +34,13 @@ class LinkedList:
 
         head.set_next(self.delete_element_from_position(head.get_next(), position - 1))
         return head
+
+    def insert_at_tail(self, head, node):
+        if not head:
+            return node
+        else:
+            if not head.get_next():
+                head.set_next(node)
+            else:
+                self.insert_at_tail( head.get_next(), node)
+            return head
