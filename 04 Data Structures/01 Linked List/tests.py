@@ -89,6 +89,26 @@ class TestLinkedList(unittest.TestCase):
             self.assertEqual(linked_list.find_name(marker.get_name()), nodes_after_delete[i] )
             marker = marker.get_next()
 
+    def test_insert_at_tail(self):
+        names = ("Jose", "1234", 2), ("Rolf", "2345", 3), ("Anna", "3456", 7)
+
+        nodes = [Node(name, matric, year) for name, matric, year in names]
+
+        linked_list = LinkedList()
+
+        for node in nodes:
+            linked_list.add_to_list ( node )
+
+        marker = linked_list.get_root ()
+
+        last_node = Node("George", "3232", 3)
+        linked_list.insert_at_tail(marker, last_node)
+        nodes.insert(0, last_node)
+
+        for i in range ( len ( nodes ) - 1, -1, -1 ):
+            self.assertEqual ( linked_list.find_name ( marker.get_name () ), nodes[i] )
+            marker = marker.get_next ()
+
 
 
 if __name__ == '__main__':
