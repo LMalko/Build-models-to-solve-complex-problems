@@ -109,9 +109,9 @@ class TestLinkedList(unittest.TestCase):
             self.assertEqual ( linked_list.find_name ( marker.get_name () ), nodes[i] )
             marker = marker.get_next ()
 
-    def test_delete_year_greater_than(self):
-        names = ("Jose", "1234", 5), ("Rolf", "2345", 3), \
-                ("Anna", "3456", 2), ("James", "2675", 7)
+    def test_delete_year_greater_than_1(self):
+        names = ("Jose", "1234", 7), ("Rolf", "2345", 7), \
+                ("Anna", "3456", 7), ("James", "2675", 7)
 
         nodes = [Node(name, matric, year) for name, matric, year in names]
         linked_list = LinkedList()
@@ -119,7 +119,7 @@ class TestLinkedList(unittest.TestCase):
         for node in nodes:
             linked_list.add_to_list(node)
 
-        nodes_after_delete = [node for node in nodes if node.get_name() in ["Rolf", "Anna"]]
+        nodes_after_delete = [node for node in nodes if node.get_name() in []]
 
         marker = linked_list.get_root()
 
@@ -130,9 +130,53 @@ class TestLinkedList(unittest.TestCase):
         marker = linked_list.get_root()
 
         for i in range ( len (nodes_after_delete) - 1, -1, -1 ):
-
             self.assertEqual(linked_list.find_name(marker.get_name()), nodes_after_delete[i] )
             marker = marker.get_next()
+
+    def test_delete_year_greater_than_2(self):
+        names = ("Jose", "1234", 7), ("Rolf", "2345", 7), \
+                ("Anna", "3456", 7), ("James", "2675", 3)
+
+        nodes = [Node ( name, matric, year ) for name, matric, year in names]
+        linked_list = LinkedList ()
+
+        for node in nodes:
+            linked_list.add_to_list ( node )
+
+        nodes_after_delete = [node for node in nodes if node.get_name () in ["James"]]
+
+        marker = linked_list.get_root ()
+
+        linked_list.delete_year_greater_than ( marker, 3 )
+
+        marker = linked_list.get_root ()
+
+        for i in range ( len ( nodes_after_delete ) - 1, -1, -1 ):
+            self.assertEqual ( linked_list.find_name ( marker.get_name () ), nodes_after_delete[i] )
+            marker = marker.get_next ()
+
+    def test_delete_year_greater_than_3(self):
+        names = ("Jose", "1234", 2), ("Rolf", "2345", 2), \
+                ("Anna", "3456", 2), ("James", "2675", 7)
+
+        nodes = [Node ( name, matric, year ) for name, matric, year in names]
+        linked_list = LinkedList ()
+
+        for node in nodes:
+            linked_list.add_to_list ( node )
+
+        nodes_after_delete = [node for node in nodes if node.get_name () in ["Anna", "Rolf", "Jose"]]
+
+        marker = linked_list.get_root ()
+
+        linked_list.delete_year_greater_than ( marker, 3 )
+        marker = linked_list.get_root ()
+
+        linked_list.print_list()
+
+        for i in range ( len ( nodes_after_delete ) - 1, -1, -1 ):
+            self.assertEqual ( linked_list.find_name ( marker.get_name () ), nodes_after_delete[i] )
+            marker = marker.get_next ()
 
 
 
