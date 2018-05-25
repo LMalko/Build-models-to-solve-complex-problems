@@ -46,29 +46,33 @@ class LinkedList:
             return head
 
     def delete_year_greater_than(self, head, year):
-        if not head:
+
+        def set_root(head):
+            if head and head.get_year() <= year:
+                return head
+            if head.get_next():
+                return set_root(head.get_next())
             return None
-        
-        if head.get_year() > year:
-            self.__root = head.get_next()
 
-            return self.delete_year_greater_than(self.__root, year)
+        self.__root = set_root(head)
 
-        if not head.get_next():
+        def check_rest(previous, head, year):
             if head.get_year() > year:
-                return None
-            return head
+                if head.get_next():
+                    previous.set_next(head.get_next())
+                    return check_rest(previous, head.get_next(), year)
+                else:
+                    previous.set_next(None)
+                    return
+            previous.set_next(head)
+            if head.get_next():
+                return check_rest(head, head.get_next(), year)
 
-        if head.get_next().get_year() > year:
-            if head.get_next().get_next():
-                head.set_next(head.get_next().get_next())
-                return self.delete_year_greater_than ( head.get_next (), year )
+        if self.__root:
+            if self.__root.get_next():
+                check_rest(self.__root, self.__root.get_next(), year)
             else:
-                head.set_next(None)
-        else:
-            return self.delete_year_greater_than(head.get_next(), year)
-
-
+                self.__root.set_next(None)
 
 
 
