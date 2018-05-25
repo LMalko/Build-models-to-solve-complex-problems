@@ -46,6 +46,9 @@ class LinkedList:
             return head
 
     def delete_year_greater_than(self, head, year):
+        if not head:
+            return None
+        
         if head.get_year() > year:
             self.__root = head.get_next()
 
