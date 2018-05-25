@@ -109,6 +109,27 @@ class TestLinkedList(unittest.TestCase):
             self.assertEqual ( linked_list.find_name ( marker.get_name () ), nodes[i] )
             marker = marker.get_next ()
 
+    def test_delete_year_greater_than(self):
+        names = ("Jose", "1234", 5), ("Rolf", "2345", 3), \
+                ("Anna", "3456", 7), ("James", "2675", 2)
+
+        nodes = [Node(name, matric, year) for name, matric, year in names]
+        linked_list = LinkedList()
+
+        for node in nodes:
+            linked_list.add_to_list(node)
+
+        nodes_after_delete = [node for node in nodes if node.get_name() in ["Rolf", "James"]]
+
+        marker = linked_list.get_root()
+
+        linked_list.delete_year_greater_than(marker, 3)
+
+        for i in range ( len (nodes_after_delete) - 1, -1, -1 ):
+            print(marker.get_name())
+            self.assertEqual(linked_list.find_name(marker.get_name()), nodes_after_delete[i] )
+            marker = marker.get_next()
+
 
 
 if __name__ == '__main__':
