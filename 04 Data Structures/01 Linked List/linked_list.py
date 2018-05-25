@@ -44,3 +44,24 @@ class LinkedList:
             else:
                 self.insert_at_tail( head.get_next(), node)
             return head
+
+    def delete_year_greater_than(self, head, year):
+        if not head.get_next():
+            if head.get_year() > year:
+                return None
+            return head
+
+        if head.get_next().get_year() > year:
+            if head.get_next().get_next():
+                head.set_next(head.get_next().get_next())
+                return self.delete_year_greater_than ( head.get_next (), year )
+            else:
+                head.set_next(None)
+        else:
+            return self.delete_year_greater_than(head.get_next(), year)
+
+
+
+
+
+

@@ -7,7 +7,7 @@ class Node:
         self.__next = None
 
     def set_next(self, node):
-        if isinstance(node, Node) or node:
+        if isinstance(node, (Node, type(None))) or node:
             self.__next = node
         else:
             raise TypeError("The 'next' node must be of type Node or None")
@@ -20,3 +20,6 @@ class Node:
 
     def get_name(self):
         return self.__name
+
+    def get_year(self):
+        return self.year
