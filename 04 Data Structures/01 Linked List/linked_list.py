@@ -90,6 +90,12 @@ class LinkedList:
         self.insert_at_position(head.get_next(), node, position - 1)
         return head
 
+    def reverse_print(self, head):
+        if head:
+            self.reverse_print(head.get_next())
+            print(head.get_name())
+        else:
+            return
 
 
 

@@ -193,7 +193,7 @@ class TestLinkedList(unittest.TestCase):
         nodes.insert(4, new_node)
         linked_list.insert_at_position(linked_list.get_root(), new_node, 0)
 
-        marker = linked_list.get_root ()
+        marker = linked_list.get_root()
 
         for i in range(len(nodes) - 1, -1, -1):
             self.assertEqual(linked_list.find_name(marker.get_name()), nodes[i])
