@@ -172,11 +172,35 @@ class TestLinkedList(unittest.TestCase):
         linked_list.delete_year_greater_than ( marker, 3 )
         marker = linked_list.get_root ()
 
-        linked_list.print_list()
-
         for i in range ( len ( nodes_after_delete ) - 1, -1, -1 ):
             self.assertEqual ( linked_list.find_name ( marker.get_name () ), nodes_after_delete[i] )
             marker = marker.get_next ()
+
+    def test_insert_at_position(self):
+        names = ("Jose", "1234", 7), ("Rolf", "2345", 7), \
+                ("Anna", "3456", 7), ("James", "2675", 7)
+
+        nodes = [Node ( name, matric, year ) for name, matric, year in names]
+        linked_list = LinkedList ()
+
+        for node in nodes:
+            linked_list.add_to_list(node)
+
+        new_node = Node("Becky", "9898", 3)
+
+        nodes.insert(2, new_node)
+
+        linked_list.insert_at_position(linked_list.get_root(), new_node, 2)
+
+        marker = linked_list.get_root ()
+
+        for i in range(len(nodes) - 1, -1, -1):
+            self.assertEqual(linked_list.find_name(marker.get_name()), nodes[i])
+            marker = marker.get_next ()
+
+
+
+
 
 
 
