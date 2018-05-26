@@ -176,7 +176,7 @@ class TestLinkedList(unittest.TestCase):
             self.assertEqual ( linked_list.find_name ( marker.get_name () ), nodes_after_delete[i] )
             marker = marker.get_next ()
 
-    def test_insert_at_position(self):
+    def test_insert_at_position1(self):
         names = ("Jose", "1234", 7), ("Rolf", "2345", 7), \
                 ("Anna", "3456", 7), ("James", "2675", 7)
 
@@ -188,9 +188,54 @@ class TestLinkedList(unittest.TestCase):
 
         new_node = Node("Becky", "9898", 3)
 
-        nodes.insert(2, new_node)
+        # Insert at the beginning.
 
-        linked_list.insert_at_position(linked_list.get_root(), new_node, 2)
+        nodes.insert(4, new_node)
+        linked_list.insert_at_position(linked_list.get_root(), new_node, 0)
+
+        marker = linked_list.get_root ()
+
+        for i in range(len(nodes) - 1, -1, -1):
+            self.assertEqual(linked_list.find_name(marker.get_name()), nodes[i])
+            marker = marker.get_next ()
+
+    def test_insert_at_position2(self):
+        names = ("Jose", "1234", 7), ("Rolf", "2345", 7), \
+                ("Anna", "3456", 7), ("James", "2675", 7)
+
+        nodes = [Node ( name, matric, year ) for name, matric, year in names]
+        linked_list = LinkedList ()
+
+        for node in nodes:
+            linked_list.add_to_list(node)
+
+        new_node = Node("Becky", "9898", 3)
+
+        # Insert at the end.
+        nodes.insert(0, new_node)
+        linked_list.insert_at_position(linked_list.get_root(), new_node, 4)
+
+        marker = linked_list.get_root ()
+
+        for i in range(len(nodes) - 1, -1, -1):
+            self.assertEqual(linked_list.find_name(marker.get_name()), nodes[i])
+            marker = marker.get_next ()
+
+    def test_insert_at_position3(self):
+        names = ("Jose", "1234", 7), ("Rolf", "2345", 7), \
+                ("Anna", "3456", 7), ("James", "2675", 7)
+
+        nodes = [Node ( name, matric, year ) for name, matric, year in names]
+        linked_list = LinkedList ()
+
+        for node in nodes:
+            linked_list.add_to_list(node)
+
+        new_node = Node("Becky", "9898", 3)
+
+        # Insert in the middle.
+        nodes.insert(3, new_node)
+        linked_list.insert_at_position(linked_list.get_root(), new_node, 1)
 
         marker = linked_list.get_root ()
 

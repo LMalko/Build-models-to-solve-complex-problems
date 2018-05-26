@@ -76,13 +76,18 @@ class LinkedList:
 
     def insert_at_position(self, head, node, position):
 
+        if position == 0:
+            self.__root = node
+            node.set_next(head)
+            return
+
         if position == 1:
             initial_next = head.get_next()
             head.set_next(node)
             node.set_next(initial_next)
             return
 
-        self.insert_at_position(head.get_next(), node, position - 1 )
+        self.insert_at_position(head.get_next(), node, position - 1)
         return head
 
 
