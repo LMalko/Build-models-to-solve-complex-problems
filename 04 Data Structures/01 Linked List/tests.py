@@ -243,10 +243,27 @@ class TestLinkedList(unittest.TestCase):
             self.assertEqual(linked_list.find_name(marker.get_name()), nodes[i])
             marker = marker.get_next ()
 
+    def test_reverse_linked_list(self):
+        names = ("Jose", "1234", 7), ("Rolf", "2345", 7), \
+                ("Anna", "3456", 7), ("James", "2675", 7)
+
+        nodes = [Node ( name, matric, year ) for name, matric, year in names]
 
 
 
+        linked_list = LinkedList ()
 
+        for node in nodes:
+            linked_list.add_to_list(node)
+
+        nodes.reverse()
+        linked_list.reverse_linked_list(linked_list.get_root())
+
+        marker = linked_list.get_root()
+
+        for i in range ( len ( nodes ) - 1, -1, -1 ):
+            self.assertEqual(linked_list.find_name(marker.get_name () ), nodes[i])
+            marker = marker.get_next ()
 
 
 if __name__ == '__main__':
