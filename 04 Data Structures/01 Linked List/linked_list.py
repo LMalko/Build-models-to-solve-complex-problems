@@ -176,6 +176,51 @@ class LinkedList:
 #         return headB
 
 
+# 4.
+# def removeDuplicates(head):
+#     cur = head
+#     while cur.next != None:
+#         if cur.data == cur.next.data:
+#             cur.next = cur.next.next
+#         else:
+#             cur = cur.next
+#     return head
 
+# 5. Check if there are repeating elements in the linked_list, i.e. if there is a cycle
 
+# def has_cycle(head):
+#     lista = [head]
+#     while head.next:
+#         if head.next in lista:
+#             return True
+#         lista.append(head.next)
+#         head = head.next
+#     return False
+
+# 6.
+
+# def FindMergeNode(head_a, head_b):
+#     temp_a, temp_b = head_a, head_b
+#     while temp_a != temp_b:
+#         temp_a, temp_b = temp_a.next or head_a, temp_b.next or head_b
+#     return temp_a.data
+
+# 7.
+# Given a reference to the head of a doubly-linked list and an integer, ,
+# create a new DoublyLinkedListNode object having data value
+# and insert it into a sorted linked list.
+
+# def sortedInsert(head, data):
+#     node = DoublyLinkedListNode(data)
+#     if (head == None):
+#         return node
+#     elif (data < head.data):
+#         node.next = head
+#         head.prev = node
+#         return node
+#     else:
+#         node = sortedInsert(head.next, data)
+#         head.next = node
+#         node.prev = head
+#         return head
 
