@@ -126,6 +126,7 @@ class LinkedList:
 
         return True if head_a == head_b else False
 
+# 1.
 
 # def reverse_doubly_linked_list(head):
 #     if not head:
@@ -135,7 +136,91 @@ class LinkedList:
 #         return head
 #     return reverse_doubly_linked_list(head.prev)
 
+# 2.
+
+# def get_node_from_position_from_tail(head, position_from_tail):
+#     results = []
+#
+#     while head:
+#         results.append(head)
+#         head = head.next
+#     # try:
+#     #     del results[position_from_tail + 1]
+#     # except:
+#     #     pass
+#
+#     return results[- position_from_tail - 1]
+
+# 3.
+#   Merge two lists with data in ascending order into one lists
+#   maintaining descending order
+
+#       Sample Input:
+
+#       1 -> 3 -> 5 -> 6 -> NULL
+#       2 -> 4 -> 7 -> NULL
+
+#       Output:         1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> NULL
+
+# def merge_lists(headA, headB):
+#     if not headB:
+#         return headA
+#     if not headA:
+#         return headB
+#
+#     if headA.data < headB.data:
+#         headA.next = merge_lists(headA.next, headB)
+#         return headA
+#     else:
+#         headB.next = merge_lists(headA, headB.next)
+#         return headB
 
 
+# 4.
+# def removeDuplicates(head):
+#     cur = head
+#     while cur.next != None:
+#         if cur.data == cur.next.data:
+#             cur.next = cur.next.next
+#         else:
+#             cur = cur.next
+#     return head
 
+# 5. Check if there are repeating elements in the linked_list, i.e. if there is a cycle
+
+# def has_cycle(head):
+#     lista = [head]
+#     while head.next:
+#         if head.next in lista:
+#             return True
+#         lista.append(head.next)
+#         head = head.next
+#     return False
+
+# 6.
+
+# def FindMergeNode(head_a, head_b):
+#     temp_a, temp_b = head_a, head_b
+#     while temp_a != temp_b:
+#         temp_a, temp_b = temp_a.next or head_a, temp_b.next or head_b
+#     return temp_a.data
+
+# 7.
+# Given a reference to the head of a doubly-linked list and an integer, ,
+# create a new DoublyLinkedListNode object having data value
+# and insert it into a sorted linked list.
+
+# def sortedInsert(head, data):
+#     node = DoublyLinkedListNode(data)
+#     if (head == None):
+#         return node
+#     elif (data < head.data):
+#         node.next = head
+#         head.prev = node
+#         return node
+#     else:
+#         node = sortedInsert(head.next, data)
+#         head.next = node
+#         node.prev = head
+#         return head
 
