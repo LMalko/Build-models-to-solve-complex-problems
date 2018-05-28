@@ -136,6 +136,16 @@ class LinkedList:
 #     return reverse_doubly_linked_list(head.prev)
 
 
+# def get_node_from_position_from_tail(head, position_from_tail):
+#     results = []
+#
+#     while head:
+#         results.append(head)
+#         head = head.next
+#
+#     return results[- position_from_tail - 1]
+
+
 
 
 
