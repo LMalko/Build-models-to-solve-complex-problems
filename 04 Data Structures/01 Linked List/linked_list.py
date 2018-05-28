@@ -97,7 +97,35 @@ class LinkedList:
         else:
             return
 
-        
+    def reverse_linked_list(self, head):
+
+        if not head:
+            return head
+
+        if not head.get_next():
+            self.__root = head
+            return
+
+        next_node = self.reverse_linked_list(head.get_next())
+        # print(head.get_next().get_name(), "receives", head.get_name())
+        head.get_next().set_next(head)
+        # print(head.get_name(), "receives None")
+        head.set_next(None)
+
+        return next_node
+
+    def compare_two_lists_by_name(self, head_a, head_b):
+
+        while head_a and head_b:
+
+            if head_a.get_name() != head_b.get_name():
+                return False
+
+            head_a = head_a.get_next()
+            head_b = head_b.get_next ()
+
+        return True if head_a == head_b else False
+
 
 # def reverse_doubly_linked_list(head):
 #     if not head:
@@ -106,5 +134,8 @@ class LinkedList:
 #     if not head.prev:
 #         return head
 #     return reverse_doubly_linked_list(head.prev)
+
+
+
 
 
