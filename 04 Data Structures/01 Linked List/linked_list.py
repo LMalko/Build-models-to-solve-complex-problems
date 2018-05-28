@@ -97,5 +97,14 @@ class LinkedList:
         else:
             return
 
+        
+
+# def reverse_doubly_linked_list(head):
+#     if not head:
+#         return head
+#     head.next, head.prev = head.prev, head.next
+#     if not head.prev:
+#         return head
+#     return reverse_doubly_linked_list(head.prev)
 
 
