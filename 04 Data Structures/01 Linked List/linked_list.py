@@ -114,6 +114,17 @@ class LinkedList:
 
         return next_node
 
+    def compare_two_lists_by_name(self, head_a, head_b):
+
+        while head_a and head_b:
+
+            if head_a.get_name() != head_b.get_name():
+                return False
+
+            head_a = head_a.get_next()
+            head_b = head_b.get_next ()
+
+        return True if head_a == head_b else False
 
 
 # def reverse_doubly_linked_list(head):
