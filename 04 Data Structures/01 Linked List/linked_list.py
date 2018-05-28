@@ -97,6 +97,23 @@ class LinkedList:
         else:
             return
 
+    def reverse_linked_list(self, head):
+
+        if not head:
+            return head
+
+        if not head.get_next():
+            self.__root = head
+            return
+
+        next_node = self.reverse_linked_list(head.get_next())
+        # print(head.get_next().get_name(), "receives", head.get_name())
+        head.get_next().set_next(head)
+        # print(head.get_name(), "receives None")
+        head.set_next(None)
+
+        return next_node
+
 
 
 # def reverse_doubly_linked_list(head):
@@ -108,14 +125,6 @@ class LinkedList:
 #     return reverse_doubly_linked_list(head.prev)
 
 
-# def reverse_linked_list(head):
-#
-#     if not head or not head.next:
-#         return head
-#
-#     newHead = reverse_linked_list(head.next)
-#     head.next.next = head
-#     head.next = None
-#     return newHead
+
 
 
