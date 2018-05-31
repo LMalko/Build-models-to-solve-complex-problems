@@ -114,6 +114,13 @@ class LinkedList:
 
         return next_node
 
+    # def reverse_list(node):
+    #     temp = None
+    #     while node:
+    #         temp = Node ( node.value, temp )
+    #         node = node.next
+    #     return temp
+
     def compare_two_lists_by_name(self, head_a, head_b):
 
         while head_a and head_b:
