@@ -57,14 +57,14 @@ class TestQueue(unittest.TestCase):
         for node in nodes:
             linked_list.enqueue(node)
 
-        self.assertIsNotNone(linked_list.find("Jose"))
+        self.assertIsNotNone(linked_list.find_name("Jose"))
 
         popped_node = linked_list.dequeue()
 
         self.assertEqual(popped_node, nodes[0])
 
         with self.assertRaises(LookupError):
-            linked_list.find("Jose")
+            linked_list.find_name("Jose")
 
     def test_find_in_list(self):
         names = ("Jose", "1234-356"), ("Rolf", "2345-1-53563-2"), ("Anna", "345623-16779-3")
@@ -78,14 +78,14 @@ class TestQueue(unittest.TestCase):
 
         marker = linked_list.get_root()
         for i in range(len(nodes) - 1, -1, -1):
-            self.assertEqual(linked_list.find(marker.name), nodes[i])
+            self.assertEqual(linked_list.find_name(marker.name), nodes[i])
             marker = marker.get_next()
 
     def test_find_missing_in_list(self):
         linked_list = Queue()
 
         with self.assertRaises(LookupError):
-            linked_list.find("Smith")
+            linked_list.find_name("Smith")
 
     def test_push_to_queue(self):
         name = "Jose"
@@ -94,9 +94,9 @@ class TestQueue(unittest.TestCase):
         node = Node(name, phone)
         queue = Queue()
 
-        queue.push(node)
+        queue.enqueue(node)
 
-        self.assertEqual(len(queue), 1)
+        self.assertEqual(queue.size(), 1)
 
     def test_pop_from_queue(self):
         name = "Jose"
@@ -105,14 +105,14 @@ class TestQueue(unittest.TestCase):
         node = Node(name, phone)
         queue = Queue()
 
-        queue.push(node)
+        queue.enqueue(node)
 
-        self.assertEqual(len(queue), 1)
+        self.assertEqual(queue.size(), 1)
 
-        popped = queue.pop()
+        popped = queue.dequeue()
 
         self.assertEqual(popped, node)
-        self.assertEqual(len(queue), 0)
+        self.assertEqual(queue.size(), 0)
 
     def test_find_in_queue(self):
         name = "Jose"
@@ -121,9 +121,9 @@ class TestQueue(unittest.TestCase):
         node = Node(name, phone)
         queue = Queue()
 
-        queue.push(node)
+        queue.enqueue(node)
 
-        self.assertEqual(queue.find(name), node)
+        self.assertEqual(queue.find_name(name), node)
 
 if __name__ == '__main__':
     unittest.main()
