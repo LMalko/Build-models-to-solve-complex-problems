@@ -44,3 +44,9 @@ class Queue:
                 marker.set_next(None)
                 return dropped_element
             marker = marker.get_next()
+
+    def peek(self):
+        marker = self.__root
+        while marker.get_next():
+            marker = marker.get_next()
+        return marker
