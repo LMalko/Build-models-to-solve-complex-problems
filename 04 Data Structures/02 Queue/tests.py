@@ -125,7 +125,7 @@ class TestQueue(unittest.TestCase):
 
         self.assertEqual(queue.find_name(name), node)
 
-    def peek(self):
+    def test_peek(self):
         names = ("Jose", "1234-356"), ("Rolf", "2345-1-53563-2"), ("Anna", "345623-16779-3")
 
         nodes = [Node(name, phone) for name, phone in names]
@@ -135,7 +135,8 @@ class TestQueue(unittest.TestCase):
         for node in nodes:
             queue.enqueue(node)
 
-        print(queue.peek())
+        self.assertEqual(queue.peek().get_name(), "Jose")
+        self.assertNotEqual(queue.peek().get_name(), "Dżordż" )
 
 
 if __name__ == '__main__':
