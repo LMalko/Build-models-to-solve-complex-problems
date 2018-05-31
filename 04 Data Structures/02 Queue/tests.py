@@ -15,7 +15,7 @@ class TestQueue(unittest.TestCase):
         self.assertEqual(name, node.name)
         self.assertEqual(phone, node.phone)
 
-    def test_list_creation(self):
+    def test_queue_creation(self):
         linked_list = Queue()
 
         self.assertIsNone(linked_list.get_root())
@@ -66,7 +66,7 @@ class TestQueue(unittest.TestCase):
         with self.assertRaises(LookupError):
             linked_list.find_name("Jose")
 
-    def test_find_in_list(self):
+    def test_find_in_queue(self):
         names = ("Jose", "1234-356"), ("Rolf", "2345-1-53563-2"), ("Anna", "345623-16779-3")
 
         nodes = [Node(name, phone) for name, phone in names]
@@ -81,7 +81,7 @@ class TestQueue(unittest.TestCase):
             self.assertEqual(linked_list.find_name(marker.name), nodes[i])
             marker = marker.get_next()
 
-    def test_find_missing_in_list(self):
+    def test_find_missing_in_queue(self):
         linked_list = Queue()
 
         with self.assertRaises(LookupError):
@@ -114,7 +114,7 @@ class TestQueue(unittest.TestCase):
         self.assertEqual(popped, node)
         self.assertEqual(queue.size(), 0)
 
-    def test_find_in_queue(self):
+    def test_find_in_queue2(self):
         name = "Jose"
         phone = "123-456-7890"
 
