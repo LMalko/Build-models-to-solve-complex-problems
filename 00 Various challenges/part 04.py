@@ -29,3 +29,22 @@ def __ne__(self, other):
                 # object.__ne__(self, other) # For x != y OR x <> y
                 # object.__gt__(self, other) # For x > y
                 # object.__ge__(self, other) # For x >= y
+
+# 03. For loops
+
+lista = [122, 2, 63, 34, 55, 6, 7, 8]
+lista2 = ["albert", "bernard", "fred", "evan"]
+
+
+for i in enumerate(lista):
+    print(i[0], "position holds the value of", i[1])
+
+
+for i in zip(lista, lista2):
+    print(i)
+
+
+for i in sorted(lista2, reverse=True, key=len):
+    print(i)
+
+print(lista2)
