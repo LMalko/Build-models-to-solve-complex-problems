@@ -71,5 +71,25 @@ print(bin_to_decimal("00000110"))
 
 #06 ASCII order.
 
-ord()
-chr()
+# ord()
+# chr()
+
+#07 Change all elements in list to string.
+
+lista = list(map(str, lista))
+print(lista)
+
+#08 map, lambda
+
+print(list(map(lambda x: x * 8, range(4))))
+
+#09 Function returning function
+
+def funkcja(n=0):
+    return lambda: n
+
+# 10 Lambda
+
+num = lambda name: name * 2
+
+print(num(8))
