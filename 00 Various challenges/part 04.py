@@ -48,3 +48,28 @@ for i in sorted(lista2, reverse=True, key=len):
     print(i)
 
 print(lista2)
+
+#04 Decimal to binary.
+
+def dec_to_bin(number):
+    return '{0:08b}'.format(number)
+
+# {} places a variable into a string
+# 0 takes the variable at argument position 0
+# : adds formatting options for this variable (otherwise it would represent decimal 6)
+# 08 formats the number to eight digits zero-padded on the left
+# b converts the number to its binary representation
+
+print(dec_to_bin(6))
+
+#05 Binary to decimal.
+
+def bin_to_decimal(binary):
+    return int(binary, 2)
+
+print(bin_to_decimal("00000110"))
+
+#06 ASCII order.
+
+ord()
+chr()
