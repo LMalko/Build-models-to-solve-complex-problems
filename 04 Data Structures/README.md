@@ -5,3 +5,7 @@ Linked Lists are most useful when you have very large lists, where you need to b
 # 02 Queue
 
 Queue follows the First In First Out(FIFO) rule - the item that goes in first is the item that comes out first too.
+
+# 03 Stack
+
+Stack follows the Last In First Out(LIFO) rule - last element arriving comes out first.
