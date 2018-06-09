@@ -15,3 +15,6 @@ class Node:
 
     def print_details(self):
         print(f"{self.text}")
+
+    def get_text(self):
+        return self.text
