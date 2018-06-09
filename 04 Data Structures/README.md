@@ -9,3 +9,7 @@ Queue follows the First In First Out(FIFO) rule - the item that goes in first is
 # 03 Stack
 
 Stack follows the Last In First Out(LIFO) rule - last element arriving comes out first.
+
+#04 Binary Tree
+
+A binary tree is a tree data structure where each node has up to two child nodes, creating the branches of the tree. The two children are usually called the left and right nodes. Parent nodes are nodes with children, while child nodes may include references to their parents.
